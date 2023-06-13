@@ -1,4 +1,4 @@
-# VIdit's Portfolio
+# Vidit's Portfolio
 
 Portfolio using flutter
 
