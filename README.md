@@ -1,4 +1,4 @@
-# portflio_flutter
+# Vidit's Portfolio
 
 Portfolio using flutter
 
