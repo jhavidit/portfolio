@@ -12,3 +12,4 @@ export 'base_widgets/image_widget/image_widget_data.dart';
 export 'key_manager.dart';
 export 'widgets/introduction_widget/introduction_widget.dart';
 export 'widgets/introduction_widget/introduction_widget_data.dart';
+export 'responsive.dart';

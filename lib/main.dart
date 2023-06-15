@@ -47,7 +47,7 @@ class MyHomePage extends StatelessWidget {
                     Scrollable.ensureVisible(introductionKey.currentContext!,
                         duration: const Duration(milliseconds: 500));
                   },
-                  child: const BaseImageWidget(
+                  child:  BaseImageWidget(
                       data: BaseImageData(
                     asset: 'signature.png',
                   )).padding(

@@ -33,9 +33,10 @@ class BaseImageWidget extends StatelessWidget {
             aspectWidth = MediaQuery.of(context).size.width - horizontalOffset;
             aspectHeight = (aspectWidth / aspectRatio!);
           }
-
+          double opacity = data?.opacity ?? 1.0;
           return Image.asset(
             asset,
+            opacity: AlwaysStoppedAnimation(opacity),
             height: aspectHeight,
             width: aspectWidth,
             errorBuilder: (BuildContext context, Object exception,

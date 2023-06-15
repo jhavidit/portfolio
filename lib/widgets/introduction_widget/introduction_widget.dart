@@ -8,10 +8,14 @@ class IntroductionWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var screenSizeDouble = MediaQuery.of(context).size.width / 2;
+    var screenSizeInt = screenSizeDouble.toInt();
     return Wrap(
       children: [
         SizedBox(
-          width: 600,
+          width: (ResponsiveWidget.isSmallScreen(context) == true)
+              ? screenSizeDouble * 2
+              : screenSizeDouble,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -23,7 +27,7 @@ class IntroductionWidget extends StatelessWidget {
                     color: '#FFFFFF',
                     font: 'SPLR'),
               ).padding(
-                  data: PaddingData(left: 0, right: 0, bottom: 8, top: 8)),
+                  data: PaddingData(left: 0, right: 0, bottom: 8, top: 30)),
               BaseTextWidget(
                 textData: TextWidgetData(
                     text:
@@ -31,7 +35,7 @@ class IntroductionWidget extends StatelessWidget {
                     color: '#FFFFFF',
                     font: 'h3headline'),
               ).padding(
-                  data: PaddingData(left: 0, right: 0, bottom: 8, top: 8)),
+                  data: PaddingData(left: 0, right: 0, bottom: 12, top: 12)),
               UserProfilesWidget(list: [
                 UserProfileWidgetItemData(
                     logo: BaseImageData(
@@ -74,7 +78,7 @@ class IntroductionWidget extends StatelessWidget {
                     bgColor: '#fea116',
                     navLink: 'https://leetcode.com/jhavidit/')
               ]).padding(
-                  data: PaddingData(left: 0, right: 0, bottom: 8, top: 8)),
+                  data: PaddingData(left: 0, right: 0, bottom: 12, top: 12)),
               Wrap(
                 children: [
                   ElevatedButton(
@@ -84,26 +88,28 @@ class IntroductionWidget extends StatelessWidget {
                       backgroundColor: MaterialStateProperty.all(
                         HexColor('#55198b'),
                       ),
-                      shape:
-                          MaterialStateProperty.all<RoundedRectangleBorder>(
+                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                         RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(40),
                           side: BorderSide(
-                              color: HexColor(BaseColors.transparent)),
+                            color: HexColor(
+                              BaseColors.transparent,
+                            ),
+                          ),
                         ),
                       ),
                     ),
                     child: BaseTextWidget(
                       textData: TextWidgetData(
-                          text: 'CONTACT ME',
-                          color: '#FFFFFF',
-                          font: 'subtitle2'),
+                        text: 'CONTACT ME',
+                        color: '#FFFFFF',
+                        font: 'subtitle2',
+                      ),
                     ).padding(
-                        data: PaddingData(
-                            left: 8, right: 8, bottom: 8, top: 8)),
+                        data:
+                            PaddingData(left: 8, right: 8, bottom: 8, top: 8)),
                   ).padding(
-                      data:
-                          PaddingData(left: 0, right: 12, bottom: 8, top: 8)),
+                      data: PaddingData(left: 0, right: 12, bottom: 8, top: 8)),
                   ElevatedButton(
                     onPressed: () {},
                     style: ButtonStyle(
@@ -111,8 +117,7 @@ class IntroductionWidget extends StatelessWidget {
                       backgroundColor: MaterialStateProperty.all(
                         HexColor('#55198b'),
                       ),
-                      shape:
-                          MaterialStateProperty.all<RoundedRectangleBorder>(
+                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                         RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(40),
                           side: BorderSide(
@@ -122,26 +127,29 @@ class IntroductionWidget extends StatelessWidget {
                     ),
                     child: BaseTextWidget(
                       textData: TextWidgetData(
-                          text: 'DOWNLOAD RESUME',
+                          text: 'SEE MY RESUME',
                           color: '#FFFFFF',
                           font: 'subtitle2'),
                     ).padding(
-                        data: PaddingData(
-                            left: 8, right: 8, bottom: 8, top: 8)),
+                        data:
+                            PaddingData(left: 8, right: 8, bottom: 8, top: 8)),
                   ).padding(
                       data: PaddingData(left: 0, right: 0, bottom: 8, top: 8))
                 ],
-              ).padding(
-                  data: PaddingData(left: 0, right: 0, bottom: 8, top: 8))
+              ).padding(data: PaddingData(left: 0, right: 0, bottom: 12, top: 12))
             ],
-          ).padding(
-              data: PaddingData(left: 30, right: 20, bottom: 10, top: 0)),
+          ).padding(data: PaddingData(left: 30, right: 20, bottom: 10, top: 0)),
         ),
         Column(
           children: [
             BaseImageWidget(
               data: BaseImageData(
-                  lottie: 'introduction.json', width: 400, height: 360),
+                lottie: 'introduction.json',
+                width: (ResponsiveWidget.isSmallScreen(context) == true)
+                    ? screenSizeInt * 2
+                    : screenSizeInt,
+                height: 360,
+              ),
             ),
           ],
         )
@@ -165,25 +173,24 @@ class UserProfilesWidget extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         itemBuilder: (context, index) {
           return ElevatedButton(
-            onPressed: () {
-              _launchUrl(list.elementAt(index).navLink ?? '');
-            },
-            style: ButtonStyle(
-              elevation: MaterialStateProperty.all(4),
-              backgroundColor: MaterialStateProperty.all(
-                HexColor(list.elementAt(index).bgColor),
-              ),
-              padding: MaterialStateProperty.all(EdgeInsets.all(16)),
-              shape: MaterialStateProperty.all<CircleBorder>(
-                CircleBorder(
-                  side: BorderSide(color: HexColor(BaseColors.transparent)),
+              onPressed: () {
+                _launchUrl(list.elementAt(index).navLink ?? '');
+              },
+              style: ButtonStyle(
+                elevation: MaterialStateProperty.all(4),
+                backgroundColor: MaterialStateProperty.all(
+                  HexColor(list.elementAt(index).bgColor),
+                ),
+                padding: MaterialStateProperty.all(EdgeInsets.all(16)),
+                shape: MaterialStateProperty.all<CircleBorder>(
+                  CircleBorder(
+                    side: BorderSide(color: HexColor(BaseColors.transparent)),
+                  ),
                 ),
               ),
-            ),
-            child: BaseImageWidget(
-              data: list.elementAt(index).logo,
-            )
-          );
+              child: BaseImageWidget(
+                data: list.elementAt(index).logo,
+              ));
         },
         itemCount: list.length);
   }
