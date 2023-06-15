@@ -2,6 +2,7 @@ import 'package:equatable/equatable.dart';
 
 class BaseImageData extends Equatable {
   final String? png;
+  final String? asset;
   final int? height;
   final int? width;
   final String? lottie;
@@ -10,6 +11,7 @@ class BaseImageData extends Equatable {
 
   const BaseImageData({
     this.png,
+    this.asset,
     this.height,
     this.width,
     this.lottie,
@@ -19,6 +21,7 @@ class BaseImageData extends Equatable {
 
   BaseImageData copyWith({
     String? png,
+    String? asset,
     int? height,
     int? width,
     String? lottie,
@@ -27,6 +30,7 @@ class BaseImageData extends Equatable {
   }) =>
       BaseImageData(
         png: png ?? this.png,
+        asset : asset ?? this.asset,
         height: height ?? this.height,
         width: width ?? this.width,
         lottie: lottie ?? this.lottie,
@@ -37,6 +41,7 @@ class BaseImageData extends Equatable {
   factory BaseImageData.fromMap(Map<String, dynamic> json) => BaseImageData(
     png: json['png'],
     height: json['height'],
+    asset: json['asset'],
     width: json['width'],
     lottie: json['lottie'],
     isCached: json['is_cached'] ?? false,
@@ -49,5 +54,5 @@ class BaseImageData extends Equatable {
   }
 
   @override
-  List<Object?> get props => [png, lottie, height, width, isCached,aspectRatio];
+  List<Object?> get props => [png, asset, lottie, height, width, isCached,aspectRatio];
 }

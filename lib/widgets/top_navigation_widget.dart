@@ -18,7 +18,7 @@ class _TopNavigationWidgetState extends State<TopNavigationWidget> {
         ElevatedButton(
             onPressed: () {
               Scrollable.ensureVisible(skillKey.currentContext!,
-              duration: const Duration(milliseconds: 500));
+                  duration: const Duration(milliseconds: 500));
             },
             style: ButtonStyle(
               overlayColor: MaterialStateProperty.all(HexColor('#55198b')),
@@ -33,15 +33,14 @@ class _TopNavigationWidgetState extends State<TopNavigationWidget> {
                 ),
               ),
             ),
-            onHover: (isHover) {},
             child: BaseTextWidget(
               textData: TextWidgetData(
                   text: 'Skills', color: '#FFFFFF', font: 'H3Headline'),
-            ).padding(data: PaddingData(left: 4, right: 4, bottom: 4, top: 4))),
+            ).padding(data: PaddingData(left: 0, right: 4, bottom: 4, top: 4))),
         ElevatedButton(
             onPressed: () {
               Scrollable.ensureVisible(workExperienceKey.currentContext!,
-              duration: const Duration(milliseconds: 500));
+                  duration: const Duration(milliseconds: 500));
             },
             style: ButtonStyle(
               overlayColor: MaterialStateProperty.all(HexColor('#55198b')),

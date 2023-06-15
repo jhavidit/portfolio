@@ -7,7 +7,6 @@ class WorkExperienceWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: BaseColors.indYellow.getHexColor(),
       width: double.infinity,
       height: 600,
     );

@@ -7,7 +7,6 @@ class SkillWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: BaseColors.green_2.getHexColor(),
       width: double.infinity,
       height: 600,
     );

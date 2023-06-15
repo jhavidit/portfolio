@@ -36,21 +36,47 @@ class MyHomePage extends StatelessWidget {
         width: double.infinity,
         height: double.infinity,
         color: HexColor('#171c28'),
-        child: SingleChildScrollView(
-          scrollDirection: Axis.vertical,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              TopNavigationWidget(),
-              SkillWidget(
-                key: skillKey,
+        child: Column(
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                InkWell(
+                  onTap: () {
+                    Scrollable.ensureVisible(introductionKey.currentContext!,
+                        duration: const Duration(milliseconds: 500));
+                  },
+                  child: const BaseImageWidget(
+                      data: BaseImageData(
+                    asset: 'signature.png',
+                  )).padding(
+                      data: PaddingData(left: 4, right: 0, bottom: 4, top: 10)),
+                ),
+                TopNavigationWidget(),
+              ],
+            ),
+            Expanded(
+              child: SingleChildScrollView(
+                scrollDirection: Axis.vertical,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    IntroductionWidget(
+                      key: introductionKey,
+                    ),
+                    SkillWidget(
+                      key: skillKey,
+                    ),
+                    WorkExperienceWidget(
+                      key: workExperienceKey,
+                    )
+                  ],
+                ),
               ),
-              WorkExperienceWidget(
-                key: workExperienceKey,
-              )
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

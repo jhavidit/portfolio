@@ -16,10 +16,43 @@ class BaseImageWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (data == null || (data?.png == null && data?.lottie == null)) {
+    if (data == null ||
+        (data?.png == null && data?.lottie == null && data?.asset == null)) {
       return emptyContainer;
     }
-    if (!(data!.png.isNullOrEmpty()) == true) {
+    if (!(data!.asset.isNullOrEmpty()) == true) {
+      var asset = data?.asset ?? '';
+      if (asset.isNullOrEmpty()) return emptyContainer;
+      try {
+        if ((data?.height != null && data?.width != null) ||
+            data?.aspectRatio != null) {
+          var aspectHeight = data?.height?.toDouble();
+          var aspectWidth = data?.width?.toDouble();
+          if (data?.aspectRatio != null && !ignoreAspectRatio) {
+            var aspectRatio = data?.aspectRatio;
+            aspectWidth = MediaQuery.of(context).size.width - horizontalOffset;
+            aspectHeight = (aspectWidth / aspectRatio!);
+          }
+
+          return Image.asset(
+            asset,
+            height: aspectHeight,
+            width: aspectWidth,
+            errorBuilder: (BuildContext context, Object exception,
+                StackTrace? stackTrace) {
+              return SizedBox(
+                height: aspectHeight,
+                width: aspectWidth,
+              );
+            },
+          );
+        } else {
+          return Image.asset(asset);
+        }
+      } catch (e) {
+        return emptyContainer;
+      }
+    } else if (!(data!.png.isNullOrEmpty()) == true) {
       try {
         if ((data?.height != null && data?.width != null) ||
             data?.aspectRatio != null) {
@@ -71,6 +104,8 @@ class BaseImageWidget extends StatelessWidget {
           );
         }
       } catch (e) {
+
+        print("vidit -- empty container  ${e.toString()}");
         return emptyContainer;
       }
     } else if (!(data!.lottie.isNullOrEmpty()) == true) {
@@ -84,10 +119,7 @@ class BaseImageWidget extends StatelessWidget {
             aspectWidth = MediaQuery.of(context).size.width - horizontalOffset;
             aspectHeight = (aspectWidth / aspectRatio!);
           }
-          return Lottie.network(
-            key: ValueKey(
-              data!.lottie.toString(),
-            ),
+          return Lottie.asset(
             data!.lottie.toString(),
             repeat: true,
             animate: true,
@@ -102,10 +134,7 @@ class BaseImageWidget extends StatelessWidget {
             },
           );
         } else {
-          return Lottie.network(
-            key: ValueKey(
-              data!.lottie.toString(),
-            ),
+          return Lottie.asset(
             data!.lottie.toString(),
             repeat: true,
             animate: true,
