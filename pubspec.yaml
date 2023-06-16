@@ -45,6 +45,7 @@ dependencies:
   back_button_interceptor: ^6.0.0
   lottie: ^1.4.2
   url_launcher: ^6.1.11
+  flutter_timeline: ^0.3.0
 
 dev_dependencies:
   flutter_test:

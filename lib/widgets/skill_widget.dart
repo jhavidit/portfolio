@@ -24,33 +24,78 @@ class SkillWidget extends StatelessWidget {
         ),
         TechnologiesWidget(list: [
           TechnologiesWidgetData(
-              logo: BaseImageData(
-                  asset: 'android.png', width: 60, height: 60, opacity: 0.7)),
+            logo: BaseImageData(
+              asset: 'android.png',
+              width: 60,
+              height: 60,
+              opacity: 0.7,
+            ),
+          ),
           TechnologiesWidgetData(
-              logo: BaseImageData(
-                  asset: 'flutter.png', width: 60, height: 60, opacity: 0.7)),
+            logo: BaseImageData(
+              asset: 'flutter.png',
+              width: 60,
+              height: 60,
+              opacity: 0.7,
+            ),
+          ),
           TechnologiesWidgetData(
-              logo: BaseImageData(
-                  asset: 'kotlin.png', width: 60, height: 60, opacity: 0.7)),
+            logo: BaseImageData(
+              asset: 'kotlin.png',
+              width: 60,
+              height: 60,
+              opacity: 0.7,
+            ),
+          ),
           TechnologiesWidgetData(
-              logo: BaseImageData(
-                  asset: 'java.png', width: 60, height: 60, opacity: 0.7)),
+            logo: BaseImageData(
+              asset: 'java.png',
+              width: 60,
+              height: 60,
+              opacity: 0.7,
+            ),
+          ),
           TechnologiesWidgetData(
-              logo: BaseImageData(
-                  asset: 'dart.png', width: 60, height: 60, opacity: 0.7)),
+            logo: BaseImageData(
+              asset: 'dart.png',
+              width: 60,
+              height: 60,
+              opacity: 0.7,
+            ),
+          ),
           TechnologiesWidgetData(
-              logo: BaseImageData(
-                  asset: 'firebase.png', width: 60, height: 60, opacity: 0.7)),
+            logo: BaseImageData(
+              asset: 'firebase.png',
+              width: 60,
+              height: 60,
+              opacity: 0.7,
+            ),
+          ),
         ]),
         BaseTextWidget(
           textData: TextWidgetData(
-              text:
-                  '⚡ Experienced Android and Flutter developer proficient in Java, Kotlin, and Dart.\n\n⚡ Strong knowledge of Android SDK, including activities, fragments, and services.\n\n⚡ Expertise in building cross-platform applications using Flutter\'s UI toolkit with state managements tools like BLOC.\n\n⚡ Proficient in UI design, creating intuitive and visually appealing user interfaces.\n\n⚡ Ability to optimize app performance by implementing efficient algorithms and data structures.',
-              font: 'H3HEADLINE',
-              color: '#FFFFFF'),
-        ).padding(data: PaddingData(left: 0, right: 0, bottom: 20, top: 20))
+            text:
+                '⚡ Experienced Android and Flutter developer proficient in Java, Kotlin, and Dart.\n\n⚡ Strong knowledge of Android SDK, including activities, fragments, and services.\n\n⚡ Expertise in building cross-platform applications using Flutter\'s UI toolkit with state managements tools like BLOC.\n\n⚡ Proficient in UI design, creating intuitive and visually appealing user interfaces.\n\n⚡ Ability to optimize app performance by implementing efficient algorithms and data structures.',
+            font: 'H3HEADLINE',
+            color: '#FFFFFF',
+          ),
+        ).padding(
+          data: PaddingData(
+            left: 0,
+            right: 0,
+            bottom: 20,
+            top: 20,
+          ),
+        )
       ],
-    ).padding(data: PaddingData(left: 30, right: 0, bottom: 0, top: 20));
+    ).padding(
+      data: PaddingData(
+        left: 30,
+        right: 0,
+        bottom: 0,
+        top: 20,
+      ),
+    );
   }
 }
 
@@ -90,7 +135,13 @@ class _TechnologiesWidgetState extends State<TechnologiesWidget> {
             child: BaseImageWidget(
               data: widget.list.elementAt(index).logo,
             ).padding(
-                data: PaddingData(left: 0, right: 20, bottom: 24, top: 24)),
+              data: PaddingData(
+                left: 0,
+                right: 20,
+                bottom: 24,
+                top: 24,
+              ),
+            ),
           );
         },
         itemCount: widget.list.length);

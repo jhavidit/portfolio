@@ -23,7 +23,7 @@ class IntroductionWidget extends StatelessWidget {
             children: [
               BaseTextWidget(
                 textData: TextWidgetData(
-                    text: 'Hey Folks, I am Vidit',
+                    text: 'Hey Folks, I am Vidit 👋',
                     color: '#FFFFFF',
                     font: 'SPLR'),
               ).padding(
